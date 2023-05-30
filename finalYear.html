@@ -82,6 +82,7 @@
         <div class="card_input"><label>3rd Marking Period: </label><div class="input_row"><input class="grade" name="t3" id="t3"> %</div><div class="error" id="error_t3">* enter a value between 0-100%.</div></div>
         <div class="card_input"><label>4th Marking Period: </label><div class="input_row"><input class="grade" name="t4" id="t4"> %</div><div class="error" id="error_t4">* enter a value between 0-100%.</div></div>
     </div>
+    <div class="clrForm" id="clrForm">Clear Form</div>
     <div class="results">
         <div>
             <label>What is your overall course grade target?</label>
@@ -111,18 +112,9 @@
     document.getElementById("se1").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries(1);}}); 
     document.getElementById("t3").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries(1);}}); 
     document.getElementById("t4").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries(1);}});
-    document.getElementById("se1_exempt").addEventListener("change",function () {
-         
-        if (document.getElementById("se1_exempt").checked) {
-            document.getElementById("se1").disabled=true;
-            Grades[0][1]=0.25; Grades[1][1]=0.25; Grades[2][1]=0;
-            console.log(Grades);
-        } else {
-            document.getElementById("se1").disabled=false;
-            Grades[0][1]=0.2; Grades[1][1]=0.2; Grades[2][1]=0.1;
-            console.log(Grades);
-        }});
-        
+    document.getElementById("se1_exempt").addEventListener("change",function () {changeExempt ();validateEntries (1);});
+    document.getElementById("clrForm").addEventListener("click", function () {location.reload();});
+    
 
 
     let Grades = [["t1",0.2],["t2",0.2],["se1",0.1],["t3",0.2],["t4",0.2],["se2",0.1]];

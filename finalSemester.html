@@ -60,6 +60,7 @@
         <div class="card_input"><label>1st Half of Semester: </label><div><input class="grade" name="h1" id="h1"> %</div><div class="error" id="error_h1">* enter a value between 0-100%.</div></div>
         <div class="card_input"><label>2nd Half of Semester: </label><div><input class="grade" name="h2" id="h2"> %</div><div class="error" id="error_h2">* enter a value between 0-100%.</div></div>
     </div>
+    <div class="clrForm" id="clrForm">Clear Form</div>
     <div class="results">
         <div>
             <label>What is your overall course grade target?</label>
@@ -87,7 +88,7 @@
     document.getElementById("goal").addEventListener("change",function () {validateEntries(2);});
     document.getElementById("h1").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries(2);}}); 
     document.getElementById("h2").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries(2);}}); 
-
+    document.getElementById("clrForm").addEventListener("click", function () {location.reload();});
     Grades = [["h1",0.4], ["h2",0.4], ["se", 0.2]];
   </script>
 </body>

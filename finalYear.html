@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="style.css">
+  <title>Final Exam Needed - Full Year Course</title>
+
+  <style>
+    
+    .sem1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .sem2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    .card_input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .results {
+        display: flex;
+        flex-direction: column;
+        max-width: 45rem;
+    }
+    input {
+        text-align: right;
+    }
+    #se {
+    font-weight: bolder;
+    }
+
+    p {
+        display: none;
+        font-style: italic;
+        text-align: left;
+    }
+
+    #se1_exempt {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0rem;
+    }
+    .se1_exempt {
+        font-size: 1.2rem;
+        font-style: italic;
+        margin-left: -3rem;
+    }
+
+
+
+ 
+
+  </style>
+</head>
+<body id="body">
+  <nav role="navigation">
+    <a href="./index.html">Home</a>
+    <a class="current" href="./finalYear.html">Year Course</a>
+    <a href="./finalSemester.html">Semester Course</a>
+  </nav>
+  <main role="main">
+    <h1>Final Exam Grade Calculator</h1>
+    <!-- <h2>for students of Abington Senior High School</h2> -->
+    <h2 class="description">This calculator is designed for full-year courses at Abington Senior High School, in which marking periods are given a 20% weight and midterm & final exams have a 10% weight in the overall grade calculation. </h2>
+    <h3>Enter your current grades as percentages into the spaces below. Then, select the overall course grade you hope to earn in the dropdown menu at the bottom.</h3>
+    <div class="sem1">
+        <div class="card_input"><label>1st Marking Period: </label><div class="input_row"><input class="grade" name="t1" id="t1"> %</div><div class="error" id="error_t1">* enter a value between 0-100%.</div></div>
+        <div class="card_input"><label>2nd Marking Period: </label><div class="input_row"><input class="grade" name="t2" id="t2"> %</div><div class="error" id="error_t2">* enter a value between 0-100%.</div></div>
+        <div class="card_input"><label>Midterm Grade: </label><div class="se1_exempt"><input class="checkbox" type="checkbox" name="se1_exempt" id="se1_exempt">exempt / no grade</div><div class="input_row"><input class="grade" name="se1" id="se1"> %</div><div class="error" id="error_se1">* enter a value between 0-100%.</div></div>
+    </div>
+    <div class="sem2">
+        <div class="card_input"><label>3rd Marking Period: </label><div class="input_row"><input class="grade" name="t3" id="t3"> %</div><div class="error" id="error_t3">* enter a value between 0-100%.</div></div>
+        <div class="card_input"><label>4th Marking Period: </label><div class="input_row"><input class="grade" name="t4" id="t4"> %</div><div class="error" id="error_t4">* enter a value between 0-100%.</div></div>
+    </div>
+    <div class="results">
+        <div>
+            <label>What is your overall course grade target?</label>
+            <select name="goal" id="goal">
+                <option value=0>Select</option>
+                <option value=1>A</option>
+                <option value=2>B</option>
+                <option value=3>C</option>
+                <option value=4>D</option>
+                <option value=5>E</option>
+            </select>
+        </div>
+        <div>
+            <p id="grOverall">You currently have an overall grade of <span id="grade_current"></span> %.</p>
+        </div>
+        <div>
+            <p id="scoreFinal">You need to score <span id="se"></span> % or higher on your final exam<span id="comment"></span></p>
+        </div>
+    </div>
+  </main>
+  <footer role="contentinfo">developed by William Anderson</footer>
+  <script src="./script.js" type="text/javascript"></script>
+  <script>
+    document.getElementById("goal").addEventListener("change",function () {validateEntries(1);});
+    document.getElementById("t1").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries(1);}}); 
+    document.getElementById("t2").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries(1);}}); 
+    document.getElementById("se1").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries(1);}}); 
+    document.getElementById("t3").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries(1);}}); 
+    document.getElementById("t4").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries(1);}});
+    document.getElementById("se1_exempt").addEventListener("change",function () {
+         
+        if (document.getElementById("se1_exempt").checked) {
+            document.getElementById("se1").disabled=true;
+            Grades[0][1]=0.25; Grades[1][1]=0.25; Grades[2][1]=0;
+            console.log(Grades);
+        } else {
+            document.getElementById("se1").disabled=false;
+            Grades[0][1]=0.2; Grades[1][1]=0.2; Grades[2][1]=0.1;
+            console.log(Grades);
+        }});
+        
+
+
+    let Grades = [["t1",0.2],["t2",0.2],["se1",0.1],["t3",0.2],["t4",0.2],["se2",0.1]];
+  </script>
+  
+
+</body>
+</html>

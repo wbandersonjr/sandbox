@@ -1,0 +1,111 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 95vh;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    background-color: white;
+    color: #252828;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    max-width: 680px;
+}
+nav {
+    margin: 1rem 0rem;
+    font-size: 1.5rem;
+    width: 100%;
+    background-color: #6a737397;
+    text-align: start;
+}
+
+a:link, a:visited {
+    background-color: #8CF3F0;
+    border-radius: 10px;
+    padding: 0.4rem;
+    color: #4b4f4f;
+    text-decoration: none;
+}
+a:hover {
+    background-color: #F38C8F;
+    text-decoration: underline;
+}
+a.current {
+    background-color: #CDB7E6;
+    text-decoration:none;
+}
+input.checkbox:hover {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("./images/Checkmark.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #F38C8F;
+    border: 1px solid grey;
+    border-radius: 2px;
+    
+}
+input.checkbox:checked {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("./images/Checkmark.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color:#CDB7E6;
+    border: 1px solid grey;
+    border-radius: 2px;
+
+}
+input {
+    background-color:#d6fffe ;
+    width: 12rem;
+    height:3rem;
+    margin-top: 0.4rem;
+    font-size: 3rem;
+}
+input.grade:focus {
+    outline: #F38C8F solid 0.15rem;
+}
+input.grade:disabled {
+    background-color: #6a737346;
+}
+select {
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: #6a737397;
+}
+h2 {
+    font-size: 1.3rem;
+    font-weight: 100;
+    margin: 0;
+    font-style: oblique;
+}
+h3 {
+    font-size: 1rem;
+    max-width: 40rem;
+}
+footer {
+    font-size: 13px;
+    font-style: italic;
+    margin-top: 1rem;
+}
+.error {
+    display:none;
+    color: #ed6d71;
+    font-size: 2rem;
+}
+.description {
+    font-size: 1.2rem;
+}
